@@ -28,9 +28,10 @@ dependencies {
 ```
 
 
-## Configuration
+## Setup
 
-This step is optional, but if you want you can configure some Toasty parameters. Place this anywhere in your app:
+Now you have to call NewToast wherever you want to call.
+To call NewToast Just do this.
 
 ```java
 NewToast.makeToast(MainActivity.this,
