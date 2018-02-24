@@ -6,9 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.companyname.new_toast.MainActivity">
 
- <Button
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:id="@+id/tt"
-     android:text="click me"/>
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+
+      <Button
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/tt"
+          android:text="Click me"/>
+     </LinearLayout>
 </RelativeLayout>

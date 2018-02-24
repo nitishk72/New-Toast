@@ -3,7 +3,6 @@ package com.companyname.newtoast;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,25 +30,71 @@ public class NewToast extends Toast{
         toast.setDuration(duration);
         return toast;
     }
+    private static void setToastMessage(TextView message,String msg){
+        if(!msg.equals(""))
+            message.setText(msg);
+    }
     public static Toast makeToast(Context context, String msg, int duration){
         Toast toast = makeToast(context,duration);
         View layout = LayoutInflater.from(context).inflate(R.layout.new_toast, null, false);
         TextView message = layout.findViewById(R.id.toast_text);
-        message.setText(msg);
+        layout.setBackgroundColor(context.getResources().getColor(R.color.successDark));
+        message.setTextColor(context.getResources().getColor(R.color.defaultTextDark));
+        setToastMessage(message,msg);
         toast.setView(layout);
         return toast;
     }
     public static Toast makeToast(Context context, String msg, int duration, int type){
-        Toast toast = NewToast.makeToast(context, msg, duration);
+        Toast toast = makeToast(context,duration);
         View layout = LayoutInflater.from(context).inflate(R.layout.new_toast, null, false);
         TextView message = layout.findViewById(R.id.toast_text);
-        LinearLayout linearLayout = layout.findViewById(R.id.type);
+        setToastColor(context,layout,message,type);
+        setToastMessage(message,msg);
+        toast.setView(layout);
+        return toast;
+    }
+
+    private static void setToastColor(Context context, View layout, TextView message,int type) {
+        int layoutColor = getLayoutColor(type);
+        int textColor   = getTextColor(type);
+        layout.setBackgroundColor(context.getResources().getColor(layoutColor));
+        message.setTextColor(context.getResources().getColor(textColor));
+    }
+
+    private static int getTextColor(int type){
+        int textColor ;
         switch (type){
-            case 0:linearLayout.setBackgroundColor(context.getResources().getColor(R.color.defaultDark));
+            case 0 :    textColor   = R.color.defaultTextDark;
                 break;
-            case 1:linearLayout.setBackgroundColor(context.getResources().getColor(R.color.successDark));
+            case 1 :    textColor   = R.color.defaultTextDark;
+                break;
+            case 2 :    textColor   = R.color.defaultTextDark;
+                break;
+            case 3 :    textColor   = R.color.defaultTextDark;
+                break;
+            case 4 :    textColor   = R.color.defaultTextDark;
+                break;
+            default :   textColor   = R.color.defaultTextDark;
                 break;
         }
-        return toast;
+        return textColor;
+    }
+    private static int getLayoutColor(int type){
+        int layoutColor ;
+        switch (type){
+            case 0 :    layoutColor = R.color.defaultDark;
+                break;
+            case 1 :    layoutColor = R.color.successDark;
+                break;
+            case 2 :    layoutColor = R.color.infoDark;
+                break;
+            case 3 :    layoutColor = R.color.warningDark;
+                break;
+            case 4 :    layoutColor = R.color.dangerDark;
+                break;
+            default :   layoutColor = R.color.defaultDark;
+                break;
+        }
+        return  layoutColor;
     }
 }

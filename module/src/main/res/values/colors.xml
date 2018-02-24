@@ -11,7 +11,7 @@
     <color name="dangerLight">#f8d7da</color>
     <color name="dangerTextLight">#721c24</color>
 
-    <color name="defaultDark">#cce5ff</color>
+    <color name="defaultDark">#5c5c5c</color>
     <color name="defaultTextDark">#ffffff</color>
     <color name="infoDark">#03a9f4</color>
     <color name="successDark">#4caf50</color>
