@@ -1,10 +1,6 @@
 package com.companyname.newtoast;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
-import android.support.annotation.CheckResult;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -16,13 +12,7 @@ import android.widget.Toast;
  */
 
 public class NewToast extends Toast{
-    /**
-     * Construct an empty Toast object.  You must call {@link #setView} before you
-     * can call {@link #show}.
-     *
-     * @param context The context to use.  Usually your {@link Application}
-     *                or {@link Activity} object.
-     */
+
     public static int DEFAULT   =   0;
     public static int SUCCESS   =   1;
     public static int INFO      =   2;
@@ -36,7 +26,7 @@ public class NewToast extends Toast{
         super(context);
     }
 
-    public static Toast makeToast(Context context,int duration) {
+    private static Toast makeToast(Context context,int duration) {
         Toast toast = new Toast(context);
         toast.setDuration(duration);
         return toast;
